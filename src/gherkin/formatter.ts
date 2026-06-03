@@ -32,17 +32,11 @@ export function scenariosToFeatureFile(
 }
 
 /**
- * Formats scenarios for console output (readable debugging)
+ * Formats scenarios for console output (Gherkin .feature format)
  */
-export function formatScenariosForConsole(scenarios: Scenario[]): string {
-  const lines = scenarios.map((s, i) => {
-    return `
-[Scenario ${i + 1}] ${s.title}
-  Given: ${s.given}
-  When:  ${s.when}
-  Then:  ${s.then}
-`;
-  });
-
-  return `\n✓ Generated ${scenarios.length} Scenario(s):\n${lines.join('\n')}`;
+export function formatScenariosForConsole(
+  scenarios: Scenario[],
+  featureName: string = 'Generated Feature',
+): string {
+  return `\n${scenariosToFeatureFile(scenarios, featureName)}\n`;
 }

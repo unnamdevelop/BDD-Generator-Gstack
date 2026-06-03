@@ -92,8 +92,8 @@ async function processStoryAsync(
       return;
     }
 
-    // Format for console output
-    const output = formatScenariosForConsole(validScenarios);
+    // Format for console output (Gherkin .feature format)
+    const output = formatScenariosForConsole(validScenarios, story.summary);
     console.log(output);
 
     // Log processing time
